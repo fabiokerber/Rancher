@@ -62,6 +62,7 @@ https://MASTER_IP
 Nesta etapa deve-se selecionar os três checkbox para que os três **workers** possam ter o etcd e control plane.<br>
 Após selecionado, click em **Show advanced options**.<br>
 Preencha o campo **Node Name** com o nome do primeiro node e copie o código abaixo e execute-o no respectivo node.<br>
+Faça isso para os três nodes alterando o campo **Node Name**, copiando o código e executando em cada node.<br>
 ```
 1. Node Name: rancher-k8s1
 
