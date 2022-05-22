@@ -8,8 +8,6 @@ Vagrant.configure('2') do |config|
         rancher_master.vm.box = 'ubuntu/focal64'
         rancher_master.vm.hostname = 'rancher-master'
         rancher_master.vm.network 'private_network', ip: ENV['MASTER_IP']
-        rancher_master.vm.network 'forwarded_port', guest: 80, host: 80
-        rancher_master.vm.network 'forwarded_port', guest: 443, host: 443
 
         rancher_master.vm.provision 'shell', inline: 'echo "$IP rancher-k8s1" >> /etc/hosts', env: {"IP" => ENV['K8S1_IP']}
         rancher_master.vm.provision 'shell', inline: 'echo "$IP rancher-k8s2" >> /etc/hosts', env: {"IP" => ENV['K8S2_IP']}
@@ -46,7 +44,7 @@ Vagrant.configure('2') do |config|
             vb.cpus = 4
             vb.name = 'rancher-k8s1'
             vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
-            vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
+            #vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
 
         end
 
@@ -69,7 +67,7 @@ Vagrant.configure('2') do |config|
             vb.cpus = 4
             vb.name = 'rancher-k8s2'
             vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
-            vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
+            #vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
 
         end
 
@@ -92,7 +90,7 @@ Vagrant.configure('2') do |config|
             vb.cpus = 4
             vb.name = 'rancher-k8s3'
             vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
-            vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
+            #vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
 
         end
 
