@@ -26,6 +26,15 @@ Ram: 2GB<br>
 vCPU: 4<br>
 Ram: 2GB<br>
 
+
+
+
+# Backup
+
+
+
+----------------- Falhou devido ao NAT do Vagrant -----------------
+
 # Iniciar Rancher Master & Nodes #
 ```
 $ cd Rancher/1.Udemy/install
@@ -35,7 +44,7 @@ $ vagrant up
 # Anotar Password (v2.6.3+)#
 ```
 $ vagrant ssh rancher_master -c 'sudo docker ps -a' (anotar CONTAINER ID!)
-$ vagrant ssh rancher_master -c 'sudo docker logs container-id 2>&1 | grep "Bootstrap Password:"' (substituir container-id!)
+$ vagrant ssh rancher_master -c 'sudo docker logs <CONTAINER ID> 2>&1 | grep "Bootstrap Password:"'
 ```
 
 # Acessar o Rancher v2 (e ativar com a senha coletada => v2.6.3+)#
@@ -64,13 +73,21 @@ Após selecionado, click em **Show advanced options**.<br>
 Preencha o campo **Node Name** com o nome do primeiro node e copie o código abaixo e execute-o no respectivo node.<br>
 Faça isso para os três nodes alterando o campo **Node Name**, copiando o código e executando em cada node.<br>
 ```
-1. Node Name: rancher-k8s1
+1. Node Name: rancher-k8s1 | rancher-k8s2 | rancher-k8s3
+    Obs: Adicionar primeiro e aguardar até que normalize a inclusão e API, então adicione o segundo e aguarde, etc...
 
 2. Exemplo: 
-    a. $ vagrant ssh rancher_master -c 'sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.4.3 --server https://192.168.56.100 --token xl69vs252wv6p4bgbcdntjd9ntlh2f46xzgk7bskfgs82d5zj46z2b --ca-checksum 378d4885291130a42df99f81b3af1ccafee2368d15d2579340bc5ceba6eb3a5f --node-name rancher-k8s1 --etcd --controlplane --worker'
+    a. $ vagrant ssh rancher_k8s1 -c '... --node-name rancher-k8s1 ...'
+    b. $ vagrant ssh rancher_k8s2 -c '... --node-name rancher-k8s2 ...'
+    c. $ vagrant ssh rancher_k8s3 -c '... --node-name rancher-k8s3 ...'
+
+3. "Done"
 ```
+
+----------------- Falhou devido ao NAT do Vagrant -----------------
 
 # Adicionar k8s{1,2,3} ao master#
 ```
 https://MASTER_IP
 ```
+
