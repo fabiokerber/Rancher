@@ -111,7 +111,7 @@ $ sudo apt update && sudo apt install -y kubectl
 ```
 
 # Configurar kube/config para administrar o cluster (rancher-master)#
-Obs: Print para a versão 2.6.4<br> 
+Obs: Print para a versão 2.6.4 do rancher.<br> 
 
 <kbd>
     <img src="https://github.com/fabiokerber/Rancher/blob/main/1.Udemy/img/230520221037.png">
