@@ -36,7 +36,7 @@ SO: Ubuntu Server 20.04.4 LTS<br>
 $ sudo timedatectl set-timezone America/Sao_Paulo
 ```
 
-# Adicionar hostname no /etc/hosts #
+# Adicionar hostnames no /etc/hosts #
 ```
 $ sudo vim /etc/hosts
 192.168.0.120 rancher-master
