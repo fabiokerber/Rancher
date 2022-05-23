@@ -44,7 +44,6 @@ $ sudo vim /etc/hosts
 192.168.0.122 rancher-k8s2
 192.168.0.123 rancher-k8s3
 ```
-
 # Instalar Docker no master e nodes #
 ```
 $ sudo apt install -y docker.io && sudo systemctl start docker && sudo systemctl enable docker
@@ -126,15 +125,29 @@ $ kubectl get pods -n kube-system
 $ kubectl get nodes
 ```
 
-# Traefik (rancher-master)#
-```
-$ kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-rbac.yaml
-$ kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-ds.yaml
-$ kubectl --namespace=kube-system get pods
-```
 
 
 # Backup
+----------------- Falhou devido a configuração DNS -----------------
+
+# Traefik (rancher-master)#
+```
+$ kubectl apply -f https://raw.githubusercontent.com/fabiokerber/Rancher/main/1.Udemy/traefik/traefik-rbac.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/fabiokerber/Rancher/main/1.Udemy/traefik/traefik-ds.yaml
+$ kubectl --namespace=kube-system get pods
+```
+
+# Configuração DNS (traefik) #
+```
+$ wget https://raw.githubusercontent.com/fabiokerber/Rancher/main/1.Udemy/traefik/ui.yml
+
+$ vi ui.yml
+- host: traefik.rancher.kerberos.com
+
+$ kubectl apply -f ui.yml
+```
+
+-------------------------------------------------------------------
 
 ----------------- Falhou devido ao NAT do Vagrant -----------------
 
@@ -187,7 +200,7 @@ Faça isso para os três nodes alterando o campo **Node Name**, copiando o códi
 3. "Done"
 ```
 
------------------ Falhou devido ao NAT do Vagrant -----------------
+-------------------------------------------------------------------
 
 # Adicionar k8s{1,2,3} ao master#
 ```
