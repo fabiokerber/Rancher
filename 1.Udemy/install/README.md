@@ -111,6 +111,20 @@ $ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /et
 $ sudo apt-get update && sudo apt-get install -y kubectl
 ```
 
+# Configurar kube/config para (rancher-master)#
+
+<kbd>
+    <img src="https://github.com/fabiokerber/Rancher/blob/main/1.Udemy/img/230520221037.png">
+</kbd>
+<br />
+<br />
+
+```
+$ mkdir ~/.kube && vi ~/.kube/config (paste kubeconfig)
+$ kubectl get pods -n kube-system
+$ kubectl get nodes
+```
+
 # Backup
 
 ----------------- Falhou devido ao NAT do Vagrant -----------------
