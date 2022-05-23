@@ -52,7 +52,7 @@ $ sudo apt install -y docker.io && sudo systemctl start docker && sudo systemctl
 
 # Instalar rancher no master (latest)#
 ```
-$ sudo docker run -d --name rancher --restart=unless-stopped -v /opt/rancher:/var/lib/rancher -p 80:80 -p 443:443 --privileged rancher/rancher
+$ sudo docker run -d --name rancher --restart=unless-stopped -v /opt/rancher:/var/lib/rancher -p 80:80 -p 443:443 --privileged rancher/rancher:v2.4.3
 ```
 
 # Anotar senha após finalizar deploy rancher #
@@ -105,13 +105,14 @@ Faça isso para os três nodes alterando o campo **Node Name**, copiando o códi
 
 # Instalar kubectl no master #
 ```
-$ sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2
+$ sudo apt update && sudo apt install -y apt-transport-https gnupg2
 $ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 $ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-$ sudo apt-get update && sudo apt-get install -y kubectl
+$ sudo apt update && sudo apt install -y kubectl
 ```
 
-# Configurar kube/config para (rancher-master)#
+# Configurar kube/config para administrar o cluster (rancher-master)#
+Obs: Print para a versão 2.6.4<br> 
 
 <kbd>
     <img src="https://github.com/fabiokerber/Rancher/blob/main/1.Udemy/img/230520221037.png">
@@ -124,6 +125,14 @@ $ mkdir ~/.kube && vi ~/.kube/config (paste kubeconfig)
 $ kubectl get pods -n kube-system
 $ kubectl get nodes
 ```
+
+# Traefik (rancher-master)#
+```
+$ kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-rbac.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-ds.yaml
+$ kubectl --namespace=kube-system get pods
+```
+
 
 # Backup
 
