@@ -125,7 +125,10 @@ $ kubectl get pods -n kube-system
 $ kubectl get nodes
 ```
 
-
+# Criando Persistent Volumes (Longhorn)<br>
+Sistema de volumes utilizado em Cluster específico para containers.<br>
+É criado um volume no master e quando um pode sobe, conecta-se o volume aos containers.<br>
+Instalar o App *Longhorn* acessando o cluster curso > Default > Apps > Launch.<br>
 
 # Backup
 ----------------- Falhou devido a configuração DNS -----------------
