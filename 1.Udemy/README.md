@@ -130,6 +130,39 @@ Sistema de volumes utilizado em Cluster específico para containers.<br>
 É criado um volume no master e quando um pode sobe, conecta-se o volume aos containers.<br>
 Instalar o App *Longhorn* acessando o cluster curso > Default > Apps > Launch.<br>
 
+# Deploy do Graylog+Elasticsearch para visualização centralizada dos logs<br>
+
+# Habilitar o monitoramento do cluster Grafana+Prometheus<br>
+Acessar o cluster > Tools > Monitoring.
+
+# Cronjob <br>
+Cronjob agendado geralmente utilizado para realizar backup de banco, por exemplo.
+
+# ConfigMap <br>
+Pode ser utilizado por exemplo para armazenamento de valores de variáveis e quando o pode sobe, ele visualiza essas variáveis.<br>
+Exemplo as variaveis ao invés de ficarem dentro do pod, são lidas externamente, o que facilita na hora de atualizá-las para um ou mais pods.
+
+# Secrets <br>
+Equivalente ao ConfigMap, mas necessário para armazenar dados sensíveis.<br>
+
+# Liveness <br>
+HeathCheck de aplicações.<br>
+
+# RollingUpdate/SetImage<br>
+Atualização de imagem em etapas.<br>
+
+# AutoScalling<br>
+Definir máximo de pods á serem "Deployados" com base no consumo de CPU.
+
+# Node Selector<br>
+É possível setar labels a um determinado deploy para que o pod seja "deployado" sempre num mesmo node, por exemplo.
+Ou caso um determinado Node tenha discos mais rápidos ou rede com maior velocidade, pode-se dar preferência para que um determinado pod seja executado naquele node.
+
+# Pipeline com Rancher interno, conectando ao Github <br>
+
+# Kubeless <br>
+Serverless, equivalente ao Azure Functions.
+
 # Backup
 ----------------- Falhou devido a configuração DNS -----------------
 
