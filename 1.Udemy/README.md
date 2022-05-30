@@ -153,11 +153,12 @@ HeathCheck de aplicações.<br>
 Atualização de imagem em etapas.<br>
 
 ### AutoScalling
-Definir máximo de pods á serem "Deployados" com base no consumo de CPU.
+Definir máximo de pods á serem "Deployados" com base no consumo de CPU.<br>
 
 ### Node Selector
-É possível setar labels a um determinado deploy para que o pod seja "deployado" sempre num mesmo node, por exemplo.
-Ou caso um determinado Node tenha discos mais rápidos ou rede com maior velocidade, pode-se dar preferência para que um determinado pod seja executado naquele node.
+É possível setar labels a um determinado deploy para que o pod seja "deployado" sempre num mesmo node, por exemplo.<br>
+Ou caso um determinado Node tenha discos mais rápidos ou rede com maior velocidade, pode-se dar preferência para que um determinado pod seja executado naquele node.<br>
+Boas práticas utilizar labels.
 
 ### Pipeline com Rancher interno, conectando ao Github
 
@@ -182,7 +183,9 @@ $ helm repo update
 $ helm install stable/redis
 ```
 
-### Declarar políticas de rede
+### Declarar políticas de rede (Seg)
+Políticas de Permissão/Negação de tráfego entre pods.
+Obs: atentar-se que deve existir um "Network Provider" (preferencialmente no calico/wave), no cluster para possibilitar essas configurações de políticas. 
 
 https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/
 
@@ -190,7 +193,19 @@ https://github.com/ahmetb/kubernetes-network-policy-recipes/
 
 https://ahmet.im/blog/kubernetes-network-policy/
 
+### Limits
+Todos os containters devem ter limits e também são boas práticas definir limits dentro dos namespaces.<br>
+Desenvolvedor deve saber quanto de memória e CPU a aplicação dele vai consumir.<br>
 
+### PERMISSÕES - IAM
+Permissões de usuários para administrar o Rancher e Clusters.<br>
+<br />
+<br />
+Nível do Rancher.<br>
+ - Criar e gerenciar clusters, usuários, etc,<br>
+<br />
+Nível do Cluster<br>
+ - Criar e gerenciar objetos, deployments, etc<br>
 
 # Backup
 ----------------- Falhou devido a configuração DNS -----------------
