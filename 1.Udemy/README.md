@@ -206,3 +206,6 @@ Nível do Rancher.<br>
 <br />
 Nível do Cluster<br>
  - Criar e gerenciar objetos, deployments, etc<br>
+
+### Fleet 
+"Deployar" aplicação em vários cluster Kubernetes, mas com a possibilidade de parametrizar a aplicação por cluster.
