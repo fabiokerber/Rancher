@@ -202,7 +202,7 @@ Permissões de usuários para administrar o Rancher e Clusters.<br>
 <br />
 <br />
 Nível do Rancher.<br>
- - Criar e gerenciar clusters, usuários, etc,<br>
+ - Criar e gerenciar clusters, usuários, etc<br>
 <br />
 Nível do Cluster<br>
  - Criar e gerenciar objetos, deployments, etc<br>
